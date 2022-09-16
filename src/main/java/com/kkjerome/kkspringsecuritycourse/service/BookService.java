@@ -9,7 +9,6 @@ import java.util.List;
 
 @Service
 public class BookService {
-
     @Autowired
     private BookRepository repository;
 
@@ -19,11 +18,11 @@ public class BookService {
     }
 
     public Book getBook(int bookId){
-        return repository.findOne(bookId);
+        return repository.findByBookId(bookId);
     }
 
     public List<Book> removeBook(int bookId){
-        repository.delete(bookId)
+        repository.deleteById(bookId);
         return repository.findAll();
     }
 }
